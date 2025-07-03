@@ -1,603 +1,572 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farhan Kertadiwangsa | Web Developer</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deddy sunarya | IT Infrastructure</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0f172a',
-                        secondary: '#1e293b',
-                        accent: '#3b82f6',
-                        rgb1: '#ff0080',
-                        rgb2: '#00ffcc',
-                        rgb3: '#9900ff',
-                    },
-                    fontFamily: {
-                        'space': ['Space Grotesk', 'sans-serif'],
-                        'poppins': ['Poppins', 'sans-serif']
-                    },
-                    animation: {
-                        'gradient': 'gradient 8s ease infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        gradient: {
-                            '0%, 100%': { 'background-position': '0% 50%' },
-                            '50%': { 'background-position': '100% 50%' }
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-15px)' }
-                        }
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#0f172a',
+              secondary: '#1e293b',
+              accent: '#3b82f6',
+              rgb1: '#ff0080',
+              rgb2: '#00ffcc',
+              rgb3: '#9900ff',
+            },
+            fontFamily: {
+              space: ['Space Grotesk', 'sans-serif'],
+              poppins: ['Poppins', 'sans-serif'],
+            },
+            animation: {
+              gradient: 'gradient 8s ease infinite',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              float: 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+              gradient: {
+                '0%, 100%': { 'background-position': '0% 50%' },
+                '50%': { 'background-position': '100% 50%' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-15px)' },
+              },
+            },
+          },
+        },
+      };
     </script>
     <style type="text/css">
-        body {
-            background-color: #0f172a;
-            color: #f1f5f9;
-            overflow-x: hidden;
-            font-family: 'Poppins', sans-serif;
+      body {
+        background-color: #0f172a;
+        color: #f1f5f9;
+        overflow-x: hidden;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      .hero-bg {
+        background: linear-gradient(135deg, #0f172a, #1e293b, #0f172a);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+      }
+
+      .rgb-glow {
+        box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        transition: all 0.3s ease;
+      }
+
+      .rgb-glow:hover {
+        box-shadow: 0 0 25px rgba(59, 130, 246, 0.8);
+      }
+
+      .rgb-border {
+        border: 1px solid transparent;
+        background: linear-gradient(45deg, #0f172a, #0f172a), linear-gradient(45deg, #ff0080, #00ffcc, #9900ff);
+        background-clip: padding-box, border-box;
+        background-origin: padding-box, border-box;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+      }
+
+      .portfolio-card {
+        transition: all 0.3s ease;
+        overflow: hidden;
+      }
+
+      .portfolio-card:hover .portfolio-overlay {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .timeline-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(to bottom, #3b82f6, #8b5cf6, #ec4899);
+      }
+
+      .contact-input {
+        background-color: rgba(30, 41, 59, 0.7);
+        border: 1px solid rgba(99, 102, 241, 0.3);
+      }
+
+      .contact-input:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+      }
+
+      .social-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        .hero-content {
+          padding-top: 100px;
         }
-        
-        .hero-bg {
-            background: linear-gradient(135deg, #0f172a, #1e293b, #0f172a);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-        }
-        
-        .rgb-glow {
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
-            transition: all 0.3s ease;
-        }
-        
-        .rgb-glow:hover {
-            box-shadow: 0 0 25px rgba(59, 130, 246, 0.8);
-        }
-        
-        .rgb-border {
-            border: 1px solid transparent;
-            background: linear-gradient(45deg, #0f172a, #0f172a), 
-                        linear-gradient(45deg, #ff0080, #00ffcc, #9900ff);
-            background-clip: padding-box, border-box;
-            background-origin: padding-box, border-box;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-        }
-        
-        .portfolio-card {
-            transition: all 0.3s ease;
-            overflow: hidden;
-        }
-        
-        .portfolio-card:hover .portfolio-overlay {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(to bottom, #3b82f6, #8b5cf6, #ec4899);
-        }
-        
-        .contact-input {
-            background-color: rgba(30, 41, 59, 0.7);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-        }
-        
-        .contact-input:focus {
-            outline: none;
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-        }
-        
-        .social-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-        }
-        
-        @media (max-width: 768px) {
-            .hero-content {
-                padding-top: 100px;
-            }
-        }
+      }
     </style>
-</head>
-<body class="antialiased">
+  </head>
+  <body class="antialiased">
     <!-- Hero Section -->
     <section id="hero" class="min-h-screen hero-bg relative overflow-hidden">
-        <!-- Animated Particles Background -->
-        <div class="absolute inset-0 z-0">
-            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500 rounded-full filter blur-3xl opacity-20 animate-float"></div>
-            <div class="absolute top-1/3 right-1/4 w-72 h-72 bg-pink-500 rounded-full filter blur-3xl opacity-20 animate-float animation-delay-2000"></div>
-            <div class="absolute bottom-1/4 left-1/3 w-60 h-60 bg-cyan-500 rounded-full filter blur-3xl opacity-20 animate-float animation-delay-4000"></div>
-            <div class="absolute bottom-1/3 right-1/3 w-80 h-80 bg-blue-500 rounded-full filter blur-3xl opacity-20 animate-float"></div>
+      <!-- Animated Particles Background -->
+      <div class="absolute inset-0 z-0">
+        <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500 rounded-full filter blur-3xl opacity-20 animate-float"></div>
+        <div class="absolute top-1/3 right-1/4 w-72 h-72 bg-pink-500 rounded-full filter blur-3xl opacity-20 animate-float animation-delay-2000"></div>
+        <div class="absolute bottom-1/4 left-1/3 w-60 h-60 bg-cyan-500 rounded-full filter blur-3xl opacity-20 animate-float animation-delay-4000"></div>
+        <div class="absolute bottom-1/3 right-1/3 w-80 h-80 bg-blue-500 rounded-full filter blur-3xl opacity-20 animate-float"></div>
+      </div>
+
+      <div class="container mx-auto px-4 py-24 md:py-32 relative z-10">
+        <div class="hero-content flex flex-col items-center justify-center text-center">
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold font-space mb-6 max-w-4xl">Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Deddy Sunarya</span> — IT Infrastructure</h1>
+          <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl">"I build fast, stable, and secure infrastructure to power interactive websites."</p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="#portfolio" class="rgb-glow rgb-border px-8 py-4 rounded-full font-bold bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-500 hover:to-indigo-600 transition-all duration-300 transform hover:scale-105">
+              View My Work
+            </a>
+            <a href="#contact" class="rgb-glow rgb-border px-8 py-4 rounded-full font-bold bg-transparent border border-indigo-500 hover:bg-indigo-900/30 transition-all duration-300 transform hover:scale-105"> Contact Me </a>
+          </div>
         </div>
-        
-        <div class="container mx-auto px-4 py-24 md:py-32 relative z-10">
-            <div class="hero-content flex flex-col items-center justify-center text-center">
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold font-space mb-6 max-w-4xl">
-                    Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Farhan Kertadiwangsa</span> — Web Developer
-                </h1>
-                <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl">
-                    I create interactive and powerful websites for individuals, businesses, and personal brands.
-                </p>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <a href="#portfolio" class="rgb-glow rgb-border px-8 py-4 rounded-full font-bold bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-500 hover:to-indigo-600 transition-all duration-300 transform hover:scale-105">
-                        View My Work
-                    </a>
-                    <a href="#contact" class="rgb-glow rgb-border px-8 py-4 rounded-full font-bold bg-transparent border border-indigo-500 hover:bg-indigo-900/30 transition-all duration-300 transform hover:scale-105">
-                        Contact Me
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Tech Stack Floating Icons -->
-        <div class="absolute bottom-10 left-0 right-0 flex justify-center space-x-8 opacity-70">
-            <i class="fab fa-html5 text-3xl text-orange-500 animate-bounce" style="animation-delay: 0.1s"></i>
-            <i class="fab fa-css3-alt text-3xl text-blue-500 animate-bounce" style="animation-delay: 0.3s"></i>
-            <i class="fab fa-js text-3xl text-yellow-400 animate-bounce" style="animation-delay: 0.5s"></i>
-            <i class="fab fa-github text-3xl text-gray-300 animate-bounce" style="animation-delay: 0.7s"></i>
-            <i class="fab fa-react text-3xl text-cyan-400 animate-bounce" style="animation-delay: 0.9s"></i>
-        </div>
+      </div>
+
+      <!-- Tech Stack Floating Icons -->
+      <div class="absolute bottom-10 left-0 right-0 flex justify-center space-x-8 opacity-70">
+        <i class="fab fa-html5 text-3xl text-orange-500 animate-bounce" style="animation-delay: 0.1s"></i>
+        <i class="fab fa-css3-alt text-3xl text-blue-500 animate-bounce" style="animation-delay: 0.3s"></i>
+        <i class="fab fa-js text-3xl text-yellow-400 animate-bounce" style="animation-delay: 0.5s"></i>
+        <i class="fab fa-github text-3xl text-gray-300 animate-bounce" style="animation-delay: 0.7s"></i>
+        <i class="fab fa-react text-3xl text-cyan-400 animate-bounce" style="animation-delay: 0.9s"></i>
+      </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="py-20 bg-gradient-to-b from-slate-900 to-slate-800">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 font-space">What I Can Build For You</h2>
-            <p class="text-gray-400 text-center max-w-2xl mx-auto mb-16">
-                Professional web solutions tailored to your specific needs and goals
-            </p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service Card 1 -->
-                <div class="service-card rgb-border rounded-2xl p-6 bg-slate-800/50 backdrop-blur-sm transition-all duration-300">
-                    <div class="w-16 h-16 rounded-full bg-blue-900/30 flex items-center justify-center mb-6">
-                        <i class="fas fa-laptop-code text-3xl text-blue-400"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Interactive Web Design</h3>
-                    <p class="text-gray-400">
-                        Modern, mobile-friendly UI with engaging animations and intuitive user experiences that captivate your audience.
-                    </p>
-                </div>
-                
-                <!-- Service Card 2 -->
-                <div class="service-card rgb-border rounded-2xl p-6 bg-slate-800/50 backdrop-blur-sm transition-all duration-300">
-                    <div class="w-16 h-16 rounded-full bg-purple-900/30 flex items-center justify-center mb-6">
-                        <i class="fas fa-building text-3xl text-purple-400"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Company Profile Website</h3>
-                    <p class="text-gray-400">
-                        Professional online presence that showcases your brand, services, and values to potential clients and partners.
-                    </p>
-                </div>
-                
-                <!-- Service Card 3 -->
-                <div class="service-card rgb-border rounded-2xl p-6 bg-slate-800/50 backdrop-blur-sm transition-all duration-300">
-                    <div class="w-16 h-16 rounded-full bg-amber-900/30 flex items-center justify-center mb-6">
-                        <i class="fas fa-shopping-cart text-3xl text-amber-400"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Online Store (E-commerce)</h3>
-                    <p class="text-gray-400">
-                        Fully-featured e-commerce platform with secure payments, inventory management, and seamless shopping experience.
-                    </p>
-                </div>
-                
-                <!-- Service Card 4 -->
-                <div class="service-card rgb-border rounded-2xl p-6 bg-slate-800/50 backdrop-blur-sm transition-all duration-300">
-                    <div class="w-16 h-16 rounded-full bg-emerald-900/30 flex items-center justify-center mb-6">
-                        <i class="fas fa-code text-3xl text-emerald-400"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Custom Web Application</h3>
-                    <p class="text-gray-400">
-                        Bespoke solutions tailored to your specific business needs, from dashboards to complex interactive tools.
-                    </p>
-                </div>
-                
-                <!-- Service Card 5 -->
-                <div class="service-card rgb-border rounded-2xl p-6 bg-slate-800/50 backdrop-blur-sm transition-all duration-300">
-                    <div class="w-16 h-16 rounded-full bg-rose-900/30 flex items-center justify-center mb-6">
-                        <i class="fas fa-tachometer-alt text-3xl text-rose-400"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Website Optimization & Maintenance</h3>
-                    <p class="text-gray-400">
-                        Speed optimization, security updates, and ongoing maintenance to keep your website running at peak performance.
-                    </p>
-                </div>
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 font-space">What I Can Build For You</h2>
+        <p class="text-gray-400 text-center max-w-2xl mx-auto mb-16">Professional web solutions tailored to your specific needs and goals</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Service Card 1 -->
+          <div class="service-card rgb-border rounded-2xl p-6 bg-slate-800/50 backdrop-blur-sm transition-all duration-300">
+            <div class="w-16 h-16 rounded-full bg-blue-900/30 flex items-center justify-center mb-6">
+              <i class="fas fa-laptop-code text-3xl text-blue-400"></i>
             </div>
+            <h3 class="text-xl font-bold mb-3">Interactive Web Design</h3>
+            <p class="text-gray-400">Modern, mobile-friendly UI with engaging animations and intuitive user experiences that captivate your audience.</p>
+          </div>
+
+          <!-- Service Card 2 -->
+          <div class="service-card rgb-border rounded-2xl p-6 bg-slate-800/50 backdrop-blur-sm transition-all duration-300">
+            <div class="w-16 h-16 rounded-full bg-purple-900/30 flex items-center justify-center mb-6">
+              <i class="fas fa-building text-3xl text-purple-400"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Company Profile Website</h3>
+            <p class="text-gray-400">Professional online presence that showcases your brand, services, and values to potential clients and partners.</p>
+          </div>
+
+          <!-- Service Card 3 -->
+          <div class="service-card rgb-border rounded-2xl p-6 bg-slate-800/50 backdrop-blur-sm transition-all duration-300">
+            <div class="w-16 h-16 rounded-full bg-amber-900/30 flex items-center justify-center mb-6">
+              <i class="fas fa-shopping-cart text-3xl text-amber-400"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Online Store (E-commerce)</h3>
+            <p class="text-gray-400">Fully-featured e-commerce platform with secure payments, inventory management, and seamless shopping experience.</p>
+          </div>
+
+          <!-- Service Card 4 -->
+          <div class="service-card rgb-border rounded-2xl p-6 bg-slate-800/50 backdrop-blur-sm transition-all duration-300">
+            <div class="w-16 h-16 rounded-full bg-emerald-900/30 flex items-center justify-center mb-6">
+              <i class="fas fa-code text-3xl text-emerald-400"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Custom Web Application</h3>
+            <p class="text-gray-400">Bespoke solutions tailored to your specific business needs, from dashboards to complex interactive tools.</p>
+          </div>
+
+          <!-- Service Card 5 -->
+          <div class="service-card rgb-border rounded-2xl p-6 bg-slate-800/50 backdrop-blur-sm transition-all duration-300">
+            <div class="w-16 h-16 rounded-full bg-rose-900/30 flex items-center justify-center mb-6">
+              <i class="fas fa-tachometer-alt text-3xl text-rose-400"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Website Optimization & Maintenance</h3>
+            <p class="text-gray-400">Speed optimization, security updates, and ongoing maintenance to keep your website running at peak performance.</p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Portfolio Section -->
     <section id="portfolio" class="py-20 bg-slate-900">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 font-space">My Recent Projects</h2>
-            <p class="text-gray-400 text-center max-w-2xl mx-auto mb-16">
-                A showcase of my professional work and capabilities
-            </p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Portfolio Item 1 -->
-                <div class="portfolio-card group rounded-2xl overflow-hidden relative">
-                    <div class="bg-gradient-to-br from-slate-800 to-slate-900 h-full rounded-2xl">
-                        <div class="h-48 bg-gradient-to-r from-cyan-700/30 to-blue-800/30 rounded-t-2xl flex items-center justify-center">
-                            <span class="text-6xl opacity-30"><i class="fas fa-code"></i></span>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-xl font-bold mb-2">Corporate Business Platform</h3>
-                                <span class="bg-red-500 text-xs text-white px-2 py-1 rounded-full">Coming Soon</span>
-                            </div>
-                            <p class="text-gray-400 text-sm mb-4">
-                                Comprehensive business solution with dashboard, analytics, and client management.
-                            </p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="text-xs bg-slate-800 px-2 py-1 rounded">React</span>
-                                <span class="text-xs bg-slate-800 px-2 py-1 rounded">Node.js</span>
-                                <span class="text-xs bg-slate-800 px-2 py-1 rounded">MongoDB</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 flex items-end p-6 transition-all duration-300">
-                        <p class="text-white">Full project details coming soon as client work is finalized</p>
-                    </div>
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 font-space">My Recent Projects</h2>
+        <p class="text-gray-400 text-center max-w-2xl mx-auto mb-16">A showcase of my professional work and capabilities</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Portfolio Item 1 -->
+          <div class="portfolio-card group rounded-2xl overflow-hidden relative">
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 h-full rounded-2xl">
+              <div class="h-48 bg-gradient-to-r from-cyan-700/30 to-blue-800/30 rounded-t-2xl flex items-center justify-center">
+                <span class="text-6xl opacity-30"><i class="fas fa-code"></i></span>
+              </div>
+              <div class="p-6">
+                <div class="flex justify-between items-start">
+                  <h3 class="text-xl font-bold mb-2">Corporate Business Platform</h3>
+                  <span class="bg-red-500 text-xs text-white px-2 py-1 rounded-full">Coming Soon</span>
                 </div>
-                
-                <!-- Portfolio Item 2 -->
-                <div class="portfolio-card group rounded-2xl overflow-hidden relative">
-                    <div class="bg-gradient-to-br from-slate-800 to-slate-900 h-full rounded-2xl">
-                        <div class="h-48 bg-gradient-to-r from-purple-700/30 to-pink-800/30 rounded-t-2xl flex items-center justify-center">
-                            <span class="text-6xl opacity-30"><i class="fas fa-shopping-bag"></i></span>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-xl font-bold mb-2">E-commerce Experience</h3>
-                                <span class="bg-red-500 text-xs text-white px-2 py-1 rounded-full">Coming Soon</span>
-                            </div>
-                            <p class="text-gray-400 text-sm mb-4">
-                                Modern online store with product filtering, cart functionality, and secure checkout.
-                            </p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="text-xs bg-slate-800 px-2 py-1 rounded">Vue.js</span>
-                                <span class="text-xs bg-slate-800 px-2 py-1 rounded">Firebase</span>
-                                <span class="text-xs bg-slate-800 px-2 py-1 rounded">Stripe</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 flex items-end p-6 transition-all duration-300">
-                        <p class="text-white">Full project details coming soon as client work is finalized</p>
-                    </div>
+                <p class="text-gray-400 text-sm mb-4">Comprehensive business solution with dashboard, analytics, and client management.</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-xs bg-slate-800 px-2 py-1 rounded">React</span>
+                  <span class="text-xs bg-slate-800 px-2 py-1 rounded">Node.js</span>
+                  <span class="text-xs bg-slate-800 px-2 py-1 rounded">MongoDB</span>
                 </div>
-                
-                <!-- Portfolio Item 3 -->
-                <div class="portfolio-card group rounded-2xl overflow-hidden relative">
-                    <div class="bg-gradient-to-br from-slate-800 to-slate-900 h-full rounded-2xl">
-                        <div class="h-48 bg-gradient-to-r from-amber-700/30 to-rose-800/30 rounded-t-2xl flex items-center justify-center">
-                            <span class="text-6xl opacity-30"><i class="fas fa-mobile-alt"></i></span>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-xl font-bold mb-2">Mobile-First SaaS Platform</h3>
-                                <span class="bg-red-500 text-xs text-white px-2 py-1 rounded-full">Coming Soon</span>
-                            </div>
-                            <p class="text-gray-400 text-sm mb-4">
-                                Responsive web application with progressive web app capabilities and offline functionality.
-                            </p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="text-xs bg-slate-800 px-2 py-1 rounded">React</span>
-                                <span class="text-xs bg-slate-800 px-2 py-1 rounded">Tailwind CSS</span>
-                                <span class="text-xs bg-slate-800 px-2 py-1 rounded">GraphQL</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 flex items-end p-6 transition-all duration-300">
-                        <p class="text-white">Full project details coming soon as client work is finalized</p>
-                    </div>
-                </div>
+              </div>
             </div>
+            <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 flex items-end p-6 transition-all duration-300">
+              <p class="text-white">Full project details coming soon as client work is finalized</p>
+            </div>
+          </div>
+
+          <!-- Portfolio Item 2 -->
+          <div class="portfolio-card group rounded-2xl overflow-hidden relative">
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 h-full rounded-2xl">
+              <div class="h-48 bg-gradient-to-r from-purple-700/30 to-pink-800/30 rounded-t-2xl flex items-center justify-center">
+                <span class="text-6xl opacity-30"><i class="fas fa-shopping-bag"></i></span>
+              </div>
+              <div class="p-6">
+                <div class="flex justify-between items-start">
+                  <h3 class="text-xl font-bold mb-2">E-commerce Experience</h3>
+                  <span class="bg-red-500 text-xs text-white px-2 py-1 rounded-full">Coming Soon</span>
+                </div>
+                <p class="text-gray-400 text-sm mb-4">Modern online store with product filtering, cart functionality, and secure checkout.</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-xs bg-slate-800 px-2 py-1 rounded">Vue.js</span>
+                  <span class="text-xs bg-slate-800 px-2 py-1 rounded">Firebase</span>
+                  <span class="text-xs bg-slate-800 px-2 py-1 rounded">Stripe</span>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 flex items-end p-6 transition-all duration-300">
+              <p class="text-white">Full project details coming soon as client work is finalized</p>
+            </div>
+          </div>
+
+          <!-- Portfolio Item 3 -->
+          <div class="portfolio-card group rounded-2xl overflow-hidden relative">
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 h-full rounded-2xl">
+              <div class="h-48 bg-gradient-to-r from-amber-700/30 to-rose-800/30 rounded-t-2xl flex items-center justify-center">
+                <span class="text-6xl opacity-30"><i class="fas fa-mobile-alt"></i></span>
+              </div>
+              <div class="p-6">
+                <div class="flex justify-between items-start">
+                  <h3 class="text-xl font-bold mb-2">Mobile-First SaaS Platform</h3>
+                  <span class="bg-red-500 text-xs text-white px-2 py-1 rounded-full">Coming Soon</span>
+                </div>
+                <p class="text-gray-400 text-sm mb-4">Responsive web application with progressive web app capabilities and offline functionality.</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-xs bg-slate-800 px-2 py-1 rounded">React</span>
+                  <span class="text-xs bg-slate-800 px-2 py-1 rounded">Tailwind CSS</span>
+                  <span class="text-xs bg-slate-800 px-2 py-1 rounded">GraphQL</span>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 flex items-end p-6 transition-all duration-300">
+              <p class="text-white">Full project details coming soon as client work is finalized</p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- About Me Section -->
     <section id="about" class="py-20 bg-gradient-to-b from-slate-800 to-slate-900">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col lg:flex-row gap-16 items-center">
-                <div class="lg:w-1/2">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6 font-space">About Me</h2>
-                    <div class="rgb-border rounded-2xl p-8 bg-slate-800/50 backdrop-blur-sm">
-                        <p class="text-lg mb-6">
-                            I'm <span class="text-blue-400 font-bold">Farhan Kertadiwangsa</span>, a 13-year-old self-taught Web Developer from Indonesia. I started coding since 5th grade and have built dozens of projects using HTML, CSS, JavaScript, Tailwind, and more.
-                        </p>
-                        <p class="text-lg">
-                            I specialize in building interactive and professional websites that stand out. Despite my young age, I approach every project with professionalism and dedication to deliver high-quality solutions that meet client expectations.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="lg:w-1/2">
-                    <h3 class="text-2xl font-bold mb-8 text-center font-space">My Development Journey</h3>
-                    <div class="relative">
-                        <!-- Timeline -->
-                        <div class="space-y-8 relative pl-8">
-                            <!-- Year 1 -->
-                            <div class="timeline-item relative pl-8">
-                                <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500"></div>
-                                <h4 class="text-xl font-bold mb-2">Year 1: Learning HTML & CSS</h4>
-                                <p class="text-gray-400">
-                                    Mastered the fundamentals of web development, building static websites and understanding responsive design principles.
-                                </p>
-                            </div>
-                            
-                            <!-- Year 2 -->
-                            <div class="timeline-item relative pl-8">
-                                <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-gradient-to-r from-purple-500 to-pink-500"></div>
-                                <h4 class="text-xl font-bold mb-2">Year 2: Building Real Projects & Exploring JS</h4>
-                                <p class="text-gray-400">
-                                    Created interactive websites with JavaScript, implemented complex UI features, and started exploring frameworks.
-                                </p>
-                            </div>
-                            
-                            <!-- Year 3 -->
-                            <div class="timeline-item relative pl-8">
-                                <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-gradient-to-r from-amber-500 to-rose-500"></div>
-                                <h4 class="text-xl font-bold mb-2">Year 3: Taking on Real-World Web Dev Requests</h4>
-                                <p class="text-gray-400">
-                                    Working with clients to deliver professional websites, implementing e-commerce solutions, and optimizing web performance.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row gap-16 items-center">
+          <div class="lg:w-1/2">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 font-space">About Me</h2>
+            <div class="rgb-border rounded-2xl p-8 bg-slate-800/50 backdrop-blur-sm">
+              <p class="text-lg mb-6">
+                I'm <span class="text-blue-400 font-bold">Deddy Sunarya</span>, I am a professional in the field of Information Technology Infrastructure with over [5 years] of experience in designing, implementing, and managing IT systems
+                ranging from small-scale to enterprise-level environments. My expertise includes server management, networking, cloud infrastructure, security systems, as well as automation and monitoring.
+              </p>
+              </p>
             </div>
+          </div>
+
+          <div class="lg:w-1/2">
+            <h3 class="text-2xl font-bold mb-8 text-center font-space">My Development Journey</h3>
+            <div class="relative">
+              <!-- Timeline -->
+              <div class="space-y-8 relative pl-8">
+                <!-- Year 1 -->
+                <div class="timeline-item relative pl-8">
+                  <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500"></div>
+                  <h4 class="text-xl font-bold mb-2">Year 1: Learning HTML & CSS</h4>
+                  <p class="text-gray-400">Mastered the fundamentals of web development, building static websites and understanding responsive design principles.</p>
+                </div>
+
+                <!-- Year 2 -->
+                <div class="timeline-item relative pl-8">
+                  <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-gradient-to-r from-purple-500 to-pink-500"></div>
+                  <h4 class="text-xl font-bold mb-2">Year 2: Building Real Projects & Exploring JS</h4>
+                  <p class="text-gray-400">Created interactive websites with JavaScript, implemented complex UI features, and started exploring frameworks.</p>
+                </div>
+
+                <!-- Year 3 -->
+                <div class="timeline-item relative pl-8">
+                  <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-gradient-to-r from-amber-500 to-rose-500"></div>
+                  <h4 class="text-xl font-bold mb-2">Year 3: Taking on Real-World Web Dev Requests</h4>
+                  <p class="text-gray-400">Working with clients to deliver professional websites, implementing e-commerce solutions, and optimizing web performance.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-slate-900">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 font-space">Get In Touch</h2>
-            <p class="text-gray-400 text-center max-w-2xl mx-auto mb-16">
-                Have a project in mind? Let's collaborate and bring your vision to life!
-            </p>
-            
-            <div class="flex flex-col lg:flex-row gap-12">
-                <div class="lg:w-1/2">
-                    <div class="rgb-border rounded-2xl p-8 bg-slate-800/50 backdrop-blur-sm">
-                        <form id="contactForm" class="space-y-6">
-                            <div>
-                                <label for="name" class="block text-gray-300 mb-2">Your Name</label>
-                                <input type="text" id="name" class="contact-input w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 transition" placeholder="Enter your name">
-                            </div>
-                            
-                            <div>
-                                <label for="email" class="block text-gray-300 mb-2">Email Address</label>
-                                <input type="email" id="email" class="contact-input w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 transition" placeholder="Enter your email">
-                            </div>
-                            
-                            <div>
-                                <label for="message" class="block text-gray-300 mb-2">Your Message</label>
-                                <textarea id="message" rows="5" class="contact-input w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 transition" placeholder="Tell me about your project"></textarea>
-                            </div>
-                            
-                            <button type="submit" class="rgb-glow w-full bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-500 hover:to-indigo-600 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02]">
-                                Send Message
-                            </button>
-                        </form>
-                    </div>
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 font-space">Get In Touch</h2>
+        <p class="text-gray-400 text-center max-w-2xl mx-auto mb-16">Have a project in mind? Let's collaborate and bring your vision to life!</p>
+
+        <div class="flex flex-col lg:flex-row gap-12">
+          <div class="lg:w-1/2">
+            <div class="rgb-border rounded-2xl p-8 bg-slate-800/50 backdrop-blur-sm">
+              <form id="contactForm" class="space-y-6">
+                <div>
+                  <label for="name" class="block text-gray-300 mb-2">Your Name</label>
+                  <input type="text" id="name" class="contact-input w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 transition" placeholder="Enter your name" />
                 </div>
-                
-                <div class="lg:w-1/2">
-                    <div class="rgb-border rounded-2xl p-8 bg-slate-800/50 backdrop-blur-sm h-full">
-                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
-                        <p class="text-gray-400 mb-8">
-                            Feel free to reach out to me through any of these channels. I typically respond within 24 hours.
-                        </p>
-                        
-                        <div class="space-y-6">
-                            <!-- WhatsApp -->
-                            <a href="https://wa.me/6282336479077" target="_blank" class="social-btn rgb-glow flex items-center space-x-4 p-4 bg-slate-800 rounded-xl transition-all duration-300 hover:bg-slate-700">
-                                <div class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center">
-                                    <i class="fab fa-whatsapp text-xl text-white"></i>
-                                </div>
-                                <div>
-                                    <p class="font-medium">WhatsApp</p>
-                                    <p class="text-sm text-gray-400">+62 823 3647 9077</p>
-                                </div>
-                            </a>
-                            
-                            <!-- Email -->
-                            <a href="mailto:farhanshahab777@gmail.com" class="social-btn rgb-glow flex items-center space-x-4 p-4 bg-slate-800 rounded-xl transition-all duration-300 hover:bg-slate-700">
-                                <div class="w-12 h-12 rounded-full bg-red-500 flex items-center justify-center">
-                                    <i class="fas fa-envelope text-xl text-white"></i>
-                                </div>
-                                <div>
-                                    <p class="font-medium">Email</p>
-                                    <p class="text-sm text-gray-400">farhanshahab777@gmail.com</p>
-                                </div>
-                            </a>
-                            
-                            <!-- GitHub -->
-                            <a href="https://github.com/anakbydu" target="_blank" class="social-btn rgb-glow flex items-center space-x-4 p-4 bg-slate-800 rounded-xl transition-all duration-300 hover:bg-slate-700">
-                                <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center">
-                                    <i class="fab fa-github text-xl text-white"></i>
-                                </div>
-                                <div>
-                                    <p class="font-medium">GitHub</p>
-                                    <p class="text-sm text-gray-400">github.com/anakbydu</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+
+                <div>
+                  <label for="email" class="block text-gray-300 mb-2">Email Address</label>
+                  <input type="email" id="email" class="contact-input w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 transition" placeholder="Enter your email" />
                 </div>
+
+                <div>
+                  <label for="message" class="block text-gray-300 mb-2">Your Message</label>
+                  <textarea id="message" rows="5" class="contact-input w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 transition" placeholder="Tell me about your project"></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  class="rgb-glow w-full bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-500 hover:to-indigo-600 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02]"
+                >
+                  Send Message
+                </button>
+              </form>
             </div>
+          </div>
+
+          <div class="lg:w-1/2">
+            <div class="rgb-border rounded-2xl p-8 bg-slate-800/50 backdrop-blur-sm h-full">
+              <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+              <p class="text-gray-400 mb-8">Feel free to reach out to me through any of these channels. I typically respond within 24 hours.</p>
+
+              <div class="space-y-6">
+                <!-- WhatsApp -->
+                <a href="https://wa.me/6282336479077" target="_blank" class="social-btn rgb-glow flex items-center space-x-4 p-4 bg-slate-800 rounded-xl transition-all duration-300 hover:bg-slate-700">
+                  <div class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center">
+                    <i class="fab fa-whatsapp text-xl text-white"></i>
+                  </div>
+                  <div>
+                    <p class="font-medium">WhatsApp</p>
+                    <p class="text-sm text-gray-400">+62 823 3647 9077</p>
+                  </div>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:farhanshahab777@gmail.com" class="social-btn rgb-glow flex items-center space-x-4 p-4 bg-slate-800 rounded-xl transition-all duration-300 hover:bg-slate-700">
+                  <div class="w-12 h-12 rounded-full bg-red-500 flex items-center justify-center">
+                    <i class="fas fa-envelope text-xl text-white"></i>
+                  </div>
+                  <div>
+                    <p class="font-medium">Email</p>
+                    <p class="text-sm text-gray-400">farhanshahab777@gmail.com</p>
+                  </div>
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/anakbydu" target="_blank" class="social-btn rgb-glow flex items-center space-x-4 p-4 bg-slate-800 rounded-xl transition-all duration-300 hover:bg-slate-700">
+                  <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center">
+                    <i class="fab fa-github text-xl text-white"></i>
+                  </div>
+                  <div>
+                    <p class="font-medium">GitHub</p>
+                    <p class="text-sm text-gray-400">github.com/anakbydu</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Tech Stack Section -->
     <section id="tech" class="py-16 bg-slate-900 border-t border-slate-800">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-space">My Tech Stack</h2>
-            
-            <div class="flex flex-wrap justify-center gap-8 md:gap-12">
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 rounded-full bg-orange-500/10 flex items-center justify-center mb-3">
-                        <i class="fab fa-html5 text-4xl text-orange-500"></i>
-                    </div>
-                    <span class="text-gray-300">HTML5</span>
-                </div>
-                
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 rounded-full bg-blue-500/10 flex items-center justify-center mb-3">
-                        <i class="fab fa-css3-alt text-4xl text-blue-500"></i>
-                    </div>
-                    <span class="text-gray-300">CSS3</span>
-                </div>
-                
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 rounded-full bg-yellow-500/10 flex items-center justify-center mb-3">
-                        <i class="fab fa-js text-4xl text-yellow-400"></i>
-                    </div>
-                    <span class="text-gray-300">JavaScript</span>
-                </div>
-                
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 rounded-full bg-cyan-500/10 flex items-center justify-center mb-3">
-                        <i class="fab fa-react text-4xl text-cyan-400"></i>
-                    </div>
-                    <span class="text-gray-300">React</span>
-                </div>
-                
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 rounded-full bg-sky-500/10 flex items-center justify-center mb-3">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NCA1NCI+PHBhdGggZmlsbD0iIzM4YjhmZSIgZD0iTTEzLjUgNDEuN0gxMHYtNS4yaDMuNVYzNUgxMHYtMy40aDMuNVYyOGgxLjJ2My42aDguM1YyOGgxLjJ2My42aDguM1YyOGgxLjJ2My42aDMuNXYzLjNoLTMuNXYzLjRoMy41djMuM2gtMy41djMuNGgzLjVWNTFoLTMuNXYzLjNoLTEuMnYtMy4zSDIzdjMuM2gtMS4ydi0zLjNoLTguM3YzLjNoLTEuMnYtMy4zSDEwdjMuM2gtMS4ydi0zLjNoLTMuNVY0NS4xSDguOHYtMy40em0yLjctMy40aDguM3YzLjRoLTguM3YtMy40em0xMC44IDBoOC4zdjMuNGgtOC4zdi0zLjR6bS0xMC44LTMuM2g4LjN2My40aC04LjN2LTMuNHptMTAuOCAwaDguM3YzLjRoLTguM3YtMy40eiIvPjwvc3ZnPg==" alt="Tailwind CSS" class="w-12">
-                    </div>
-                    <span class="text-gray-300">Tailwind CSS</span>
-                </div>
-                
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 rounded-full bg-purple-500/10 flex items-center justify-center mb-3">
-                        <i class="fab fa-git-alt text-4xl text-purple-500"></i>
-                    </div>
-                    <span class="text-gray-300">Git</span>
-                </div>
-                
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 rounded-full bg-gray-700/10 flex items-center justify-center mb-3">
-                        <i class="fab fa-github text-4xl text-gray-300"></i>
-                    </div>
-                    <span class="text-gray-300">GitHub</span>
-                </div>
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-space">My Tech Stack</h2>
+
+        <div class="flex flex-wrap justify-center gap-8 md:gap-12">
+          <div class="flex flex-col items-center">
+            <div class="w-20 h-20 rounded-full bg-orange-500/10 flex items-center justify-center mb-3">
+              <i class="fab fa-html5 text-4xl text-orange-500"></i>
             </div>
+            <span class="text-gray-300">HTML5</span>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <div class="w-20 h-20 rounded-full bg-blue-500/10 flex items-center justify-center mb-3">
+              <i class="fab fa-css3-alt text-4xl text-blue-500"></i>
+            </div>
+            <span class="text-gray-300">CSS3</span>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <div class="w-20 h-20 rounded-full bg-yellow-500/10 flex items-center justify-center mb-3">
+              <i class="fab fa-js text-4xl text-yellow-400"></i>
+            </div>
+            <span class="text-gray-300">JavaScript</span>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <div class="w-20 h-20 rounded-full bg-cyan-500/10 flex items-center justify-center mb-3">
+              <i class="fab fa-react text-4xl text-cyan-400"></i>
+            </div>
+            <span class="text-gray-300">React</span>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <div class="w-20 h-20 rounded-full bg-sky-500/10 flex items-center justify-center mb-3">
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NCA1NCI+PHBhdGggZmlsbD0iIzM4YjhmZSIgZD0iTTEzLjUgNDEuN0gxMHYtNS4yaDMuNVYzNUgxMHYtMy40aDMuNVYyOGgxLjJ2My42aDguM1YyOGgxLjJ2My42aDguM1YyOGgxLjJ2My42aDMuNXYzLjNoLTMuNXYzLjRoMy41djMuM2gtMy41djMuNGgzLjVWNTFoLTMuNXYzLjNoLTEuMnYtMy4zSDIzdjMuM2gtMS4ydi0zLjNoLTguM3YzLjNoLTEuMnYtMy4zSDEwdjMuM2gtMS4ydi0zLjNoLTMuNVY0NS4xSDguOHYtMy40em0yLjctMy40aDguM3YzLjRoLTguM3YtMy40em0xMC44IDBoOC4zdjMuNGgtOC4zdi0zLjR6bS0xMC44LTMuM2g4LjN2My40aC04LjN2LTMuNHptMTAuOCAwaDguM3YzLjRoLTguM3YtMy40eiIvPjwvc3ZnPg=="
+                alt="Tailwind CSS"
+                class="w-12"
+              />
+            </div>
+            <span class="text-gray-300">Tailwind CSS</span>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <div class="w-20 h-20 rounded-full bg-purple-500/10 flex items-center justify-center mb-3">
+              <i class="fab fa-git-alt text-4xl text-purple-500"></i>
+            </div>
+            <span class="text-gray-300">Git</span>
+          </div>
+
+          <div class="flex flex-col items-center">
+            <div class="w-20 h-20 rounded-full bg-gray-700/10 flex items-center justify-center mb-3">
+              <i class="fab fa-github text-4xl text-gray-300"></i>
+            </div>
+            <span class="text-gray-300">GitHub</span>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="py-10 bg-slate-900 border-t border-slate-800">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <p class="text-xl font-bold font-space">Farhan Kertadiwangsa</p>
-                    <p class="text-gray-500">Web Developer & Digital Creator</p>
-                </div>
-                
-                <div class="flex space-x-6">
-                    <a href="https://wa.me/6282336479077" target="_blank" class="text-gray-400 hover:text-green-400 transition">
-                        <i class="fab fa-whatsapp text-xl"></i>
-                    </a>
-                    <a href="mailto:farhanshahab777@gmail.com" class="text-gray-400 hover:text-red-400 transition">
-                        <i class="fas fa-envelope text-xl"></i>
-                    </a>
-                    <a href="https://github.com/anakbydu" target="_blank" class="text-gray-400 hover:text-gray-200 transition">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="mt-8 text-center text-gray-600 text-sm">
-                <p>© 2023 Farhan Kertadiwangsa. All rights reserved.</p>
-                <p class="mt-2">Handcrafted with passion and precision</p>
-            </div>
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <p class="text-xl font-bold font-space">Farhan Kertadiwangsa</p>
+            <p class="text-gray-500">Web Developer & Digital Creator</p>
+          </div>
+
+          <div class="flex space-x-6">
+            <a href="https://wa.me/6282336479077" target="_blank" class="text-gray-400 hover:text-green-400 transition">
+              <i class="fab fa-whatsapp text-xl"></i>
+            </a>
+            <a href="mailto:farhanshahab777@gmail.com" class="text-gray-400 hover:text-red-400 transition">
+              <i class="fas fa-envelope text-xl"></i>
+            </a>
+            <a href="https://github.com/anakbydu" target="_blank" class="text-gray-400 hover:text-gray-200 transition">
+              <i class="fab fa-github text-xl"></i>
+            </a>
+          </div>
         </div>
+
+        <div class="mt-8 text-center text-gray-600 text-sm">
+          <p>© 2023 Farhan Kertadiwangsa. All rights reserved.</p>
+          <p class="mt-2">Handcrafted with passion and precision</p>
+        </div>
+      </div>
     </footer>
 
     <!-- Scroll to Top Button -->
     <button id="scrollTop" class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-lg transition-opacity duration-300 opacity-0 invisible">
-        <i class="fas fa-arrow-up"></i>
+      <i class="fas fa-arrow-up"></i>
     </button>
 
     <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth',
+          });
         });
-        
-        // Scroll to top button
-        const scrollTopBtn = document.getElementById('scrollTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollTopBtn.classList.remove('opacity-0', 'invisible');
-                scrollTopBtn.classList.add('opacity-100', 'visible');
-            } else {
-                scrollTopBtn.classList.remove('opacity-100', 'visible');
-                scrollTopBtn.classList.add('opacity-0', 'invisible');
-            }
+      });
+
+      // Scroll to top button
+      const scrollTopBtn = document.getElementById('scrollTop');
+
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          scrollTopBtn.classList.remove('opacity-0', 'invisible');
+          scrollTopBtn.classList.add('opacity-100', 'visible');
+        } else {
+          scrollTopBtn.classList.remove('opacity-100', 'visible');
+          scrollTopBtn.classList.add('opacity-0', 'invisible');
+        }
+      });
+
+      scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
         });
-        
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Form validation
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            if (name && email && message) {
-                // In a real implementation, this would send the form data to a server
-                alert('Thank you for your message, Farhan will contact you soon!');
-                contactForm.reset();
-            } else {
-                alert('Please fill in all fields');
-            }
-        });
+      });
+
+      // Form submission
+      const contactForm = document.getElementById('contactForm');
+
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Form validation
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        if (name && email && message) {
+          // In a real implementation, this would send the form data to a server
+          alert('Thank you for your message, Farhan will contact you soon!');
+          contactForm.reset();
+        } else {
+          alert('Please fill in all fields');
+        }
+      });
     </script>
-</body>
+  </body>
 </html>

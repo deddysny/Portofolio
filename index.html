@@ -356,96 +356,47 @@
           </div>
         </div>
       </div>
-    </section>
+<section class="px-6 py-12 max-w-7xl mx-auto">
+  <div class="grid md:grid-cols-2 gap-8">
 
-    <!-- About Me Section -->
-    <section id="about" class="py-20 bg-gradient-to-b from-slate-800 to-slate-900">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-col lg:flex-row gap-16 items-center">
-          <div class="lg:w-1/2">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6 font-space">About Me</h2>
-            <div class="rgb-border rounded-2xl p-8 bg-slate-800/50 backdrop-blur-sm">
-              <p class="text-lg mb-6">
-                I'm <span class="text-blue-400 font-bold">Deddy Sunarya</span>, I am a professional in the field of Information Technology Infrastructure with over [5 years] of experience in designing, implementing, and managing IT systems
-                ranging from small-scale to enterprise-level environments. My expertise includes server management, networking, cloud infrastructure, security systems, as well as automation and monitoring.
-              </p>
-              </p>
-            </div>
-          </div>
+    <!-- About Me (dengan kotak tetap) -->
+    <div class="rgb-border rounded-2xl p-6 bg-slate-800/50 backdrop-blur-sm">
+      <h2 class="text-2xl font-bold text-white mb-4">About Me</h2>
+      <p class="text-gray-300 leading-relaxed">
+        I’m an IT infrastructure professional with years of experience designing, deploying, and maintaining secure, scalable systems—from on-premise servers to cloud-native platforms.
+      </p>
+    </div>
 
-          <div class="lg:w-1/2">
-            <h3 class="text-2xl font-bold mb-8 text-center font-space">My Infrastructure Journey</h3>
-            <div class="relative">
-              <!-- Timeline -->
-              <div class="space-y-8 relative pl-8">
-                <!-- Year 1 -->
-                <div class="timeline-item relative pl-8">
-                  <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500"></div>
-                  <h4 class="text-xl font-bold mb-2">2017 – Starting with the Basics</h4>
-                  <p class="text-gray-400">I began my career by managing on-premise servers and local networks for small businesses. I focused on setting up Linux servers, configuring firewalls, and securing internal systems with best practices in network segmentation.</p>
-                </div>
+    <!-- My Infrastructure Journey -->
+    <div>
+      <h2 class="text-2xl font-bold text-white mb-4">My Infrastructure Journey</h2>
+      <ul class="space-y-4 text-gray-300">
+        <li class="flex items-start gap-3">
+          <span class="w-2 h-2 mt-2 rounded-full bg-rose-500 shrink-0"></span>
+          <p><strong>2017:</strong> Started with Linux server and basic networking</p>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="w-2 h-2 mt-2 rounded-full bg-rose-500 shrink-0"></span>
+          <p><strong>2019:</strong> Migrated infrastructure to Alibabacloud</p>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="w-2 h-2 mt-2 rounded-full bg-rose-500 shrink-0"></span>
+          <p><strong>2020:</strong> Adopted IaC with Terraform & Ansible</p>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="w-2 h-2 mt-2 rounded-full bg-rose-500 shrink-0"></span>
+          <p><strong>2021–2024:</strong> CI/CD, Monitoring, Kubernetes</p>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="w-2 h-2 mt-2 rounded-full bg-rose-500 shrink-0"></span>
+          <p><strong>2025:</strong> Building high-availability cloud systems</p>
+        </li>
+      </ul>
+    </div>
 
-                <!-- Year 2 -->
-                <div class="timeline-item relative pl-8">
-                  <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-gradient-to-r from-purple-500 to-pink-500"></div>
-                  <h4 class="text-xl font-bold mb-2">2018 – Embracing Virtualization</h4>
-                  <p class="text-gray-400">Explored and implemented virtualization technologies like VMware and Proxmox to optimize hardware usage. I also started managing centralized storage systems and backup solutions to improve data protection and recovery.</p>
-                </div>
+  </div>
+</section>
 
-                <!-- Year 3 -->
-                <div class="timeline-item relative pl-8">
-                  <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-gradient-to-r from-amber-500 to-rose-500"></div>
-                  <h4 class="text-xl font-bold mb-2">2019 – Moving to the Cloud</h4>
-                  <p class="text-gray-400">Transitioned from on-premise to cloud-based infrastructure using AWS. Learned about EC2, S3, IAM, and VPC while designing scalable environments for web applications.</p>
-                </div>
-
-                <!-- Year 4 -->
-                <div class="timeline-item relative pl-8">
-                  <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-gradient-to-r from-amber-500 to-rose-500"></div>
-                  <h4 class="text-xl font-bold mb-2">2020 – Automation & IaC</h4>
-                  <p class="text-gray-400">Adopted Infrastructure as Code (IaC) tools like Terraform and Ansible to automate provisioning. This year marked a significant shift to automated, repeatable, and version-controlled infrastructure deployment.</p>
-                </div>
-
-                <!-- Year 5 -->
-                <div class="timeline-item relative pl-8">
-                  <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-gradient-to-r from-amber-500 to-rose-500"></div>
-                  <h4 class="text-xl font-bold mb-2">2021 – DevOps Mindset</h4>
-                  <p class="text-gray-400">Integrated CI/CD pipelines using GitLab CI and GitHub Actions. I began applying DevOps principles across deployment processes and improved team collaboration using Git branching strategies.</p>
-                </div>
-
-                <!-- Year 6 -->
-                <div class="timeline-item relative pl-8">
-                  <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-gradient-to-r from-amber-500 to-rose-500"></div>
-                  <h4 class="text-xl font-bold mb-2">2022 – Monitoring & Optimization</h4>
-                  <p class="text-gray-400">Implemented real-time monitoring and alerting systems using Prometheus, Grafana, and Zabbix. Focused on optimizing system uptime, observability, and proactive issue detection.</p>
-                </div>
-
-                <!-- Year 7 -->
-                <div class="timeline-item relative pl-8">
-                  <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-gradient-to-r from-amber-500 to-rose-500"></div>
-                  <h4 class="text-xl font-bold mb-2">2023 – Security & Server Hardening</h4>
-                  <p class="text-gray-400">Worked extensively on Linux server hardening, log monitoring, SSH management, and intrusion prevention using Fail2Ban, Auditd, and automated patching. Also began applying compliance standards.</p>
-                </div>
-
-                 <!-- Year 8 -->
-                <div class="timeline-item relative pl-8">
-                  <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-gradient-to-r from-amber-500 to-rose-500"></div>
-                  <h4 class="text-xl font-bold mb-2">2024 – Kubernetes & Multi-cloud</h4>
-                  <p class="text-gray-400">Deployed applications using Docker and Kubernetes, while expanding to multi-cloud environments including GCP and Alibaba Cloud. Focused on scalability, availability, and disaster recovery strategies.</p>
-                </div>
-
-                 <!-- Year 9 -->
-                <div class="timeline-item relative pl-8">
-                  <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-gradient-to-r from-amber-500 to-rose-500"></div>
-                  <h4 class="text-xl font-bold mb-2">2025 – Focus on Reliability & Cost Efficiency</h4>
-                  <p class="text-gray-400">Continuously improving infrastructure for better performance, cost optimization, and resilience. Now working with cloud-native tools, load balancing, and zero-downtime deployments.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-slate-900">
